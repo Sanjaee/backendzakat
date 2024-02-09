@@ -1,11 +1,15 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+const cors = require("cors"); // Import the cors middleware
 
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+app.use(cors()); // Enable CORS for all routes
+app.use(express.json()); // Middleware for handling JSON
 
 // Koneksi ke MongoDB
 mongoose
